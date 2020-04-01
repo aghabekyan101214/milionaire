@@ -7,12 +7,10 @@
             <h3 class="box-title m-b-0">Sign In to Player</h3>
 
             <br/>
-            @error('username')
-            <span class="invalid-feedback text-danger" role="alert"> <strong>{{ $message }}</strong> </span>
-            @enderror
-            @error('password')
-            <span class="invalid-feedback text-danger" role="alert"> <strong>{{ $message }}</strong> </span>
-            @enderror
+            @if($errors->any())
+                <span class="invalid-feedback text-danger" role="alert"> <strong>{{ $errors->first() }} </strong> </span>
+            @endif
+
 
             <form class="form-horizontal new-lg-form" id="loginform" method="POST" action="{{ route('player_login') }}">
                 @csrf

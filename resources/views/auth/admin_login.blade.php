@@ -8,12 +8,9 @@
             <small>Example` Email - admin@admin.com // Password - 123456789</small>
 
             <br/>
-            @error('email')
-            <span class="invalid-feedback text-danger" role="alert"> <strong>{{ $message }}</strong> </span>
-            @enderror
-            @error('password')
-            <span class="invalid-feedback text-danger" role="alert"> <strong>{{ $message }}</strong> </span>
-            @enderror
+            @if($errors->any())
+                <span class="invalid-feedback text-danger" role="alert"> <strong>{{ $errors->first() }} </strong> </span>
+            @endif
 
             <form class="form-horizontal new-lg-form" id="loginform" method="POST" action="{{ route('admin_login') }}">
                 @csrf

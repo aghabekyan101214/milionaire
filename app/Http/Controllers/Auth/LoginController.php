@@ -58,7 +58,7 @@ class LoginController extends Controller
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
             return redirect()->intended('/admin');
         }
-        return back()->withInput($request->only('email'));
+        return back()->withErrors(['msg' => 'Wrong Credentials']);
     }
 
     public function adminLogout(Request $request)
@@ -83,7 +83,7 @@ class LoginController extends Controller
         if (Auth::guard('player')->attempt(['email' => $request->email, 'password' => $request->password])) {
             return redirect()->intended('/player');
         }
-        return back()->withInput($request->only('email'));
+        return back()->withErrors(['msg' => 'Wrong Credentials']);
     }
 
     public function playerLogout(Request $request)
