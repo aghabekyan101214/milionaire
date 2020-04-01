@@ -17,7 +17,6 @@ class CreateQuestionsTable extends Migration
             $table->bigIncrements('id');
             $table->string("title", 191);
             $table->unsignedSmallInteger("point");
-            $table->timestamps();
         });
     }
 

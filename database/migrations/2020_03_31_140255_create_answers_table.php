@@ -19,7 +19,6 @@ class CreateAnswersTable extends Migration
             $table->unsignedTinyInteger("is_wright_answer")->default(0);
             $table->unsignedBigInteger("question_id");
             $table->foreign("question_id")->references("id")->on("questions")->onDelete("cascade")->onUpdate("cascade");
-            $table->timestamps();
         });
     }
 
